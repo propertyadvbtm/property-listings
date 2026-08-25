@@ -107,7 +107,7 @@ function ConnectScreen({ onConnect }) {
     setError("");
     const cleanUrl = url.trim().replace(/\/+$/, "");
     if (!cleanUrl || !key.trim()) {
-      setError("Ð£ÐºÐ°Ð¶Ð¸ Ð¸ URL, Ð¸ ÐºÐ»ÑÑ.");
+      setError("\u0423\u043a\u0430\u0436\u0438 \u0438 URL, \u0438 \u043a\u043b\u044e\u0447.");
       return;
     }
     setTesting(true);
@@ -115,10 +115,10 @@ function ConnectScreen({ onConnect }) {
       const res = await fetch(`${cleanUrl}/rest/v1/listings?select=id&limit=1`, {
         headers: { apikey: key.trim(), Authorization: `Bearer ${key.trim()}` },
       });
-      if (!res.ok) throw new Error("ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð¿Ð¾Ð´ÐºÐ»ÑÑÐ¸ÑÑÑÑ. ÐÑÐ¾Ð²ÐµÑÑ URL Ð¸ ÐºÐ»ÑÑ.");
+      if (!res.ok) throw new Error("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c\u0441\u044f. \u041f\u0440\u043e\u0432\u0435\u0440\u044c URL \u0438 \u043a\u043b\u044e\u0447.");
       onConnect({ url: cleanUrl, key: key.trim() });
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð¿Ð¾Ð´ÐºÐ»ÑÑÐ¸ÑÑÑÑ.");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c\u0441\u044f.");
     } finally {
       setTesting(false);
     }
@@ -143,7 +143,7 @@ function ConnectScreen({ onConnect }) {
           Property Advisory Batumi
         </h1>
         <p className="text-sm mb-8" style={{ color: "#5B6664" }}>
-          ÐÐ¾Ð´ÐºÐ»ÑÑÐ¸ Ð±Ð°Ð·Ñ Ð¾Ð±ÑÑÐ²Ð»ÐµÐ½Ð¸Ð¹ Ð² Supabase, ÑÑÐ¾Ð±Ñ Ð½Ð°ÑÐ°ÑÑ.
+          \u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438 \u0431\u0430\u0437\u0443 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439 \u0432 Supabase, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c.
         </p>
 
         <label className="block text-xs uppercase tracking-wide mb-1.5" style={{ color: "#5B6664" }}>
@@ -169,7 +169,7 @@ function ConnectScreen({ onConnect }) {
           style={{ background: "#fff", border: `1px solid ${COLORS.ivoryDim}` }}
         />
         <p className="text-xs mb-5" style={{ color: "#8A928F" }}>
-          ÐÐ°Ð¹Ð´ÑÑÑ Ð² Project Settings â API. ÐÐ»ÑÑ ÑÑÐ°Ð½Ð¸ÑÑÑ ÑÐ¾Ð»ÑÐºÐ¾ Ð² ÑÑÐ¾Ð¹ ÑÐµÑÑÐ¸Ð¸.
+          \u041d\u0430\u0439\u0434\u0451\u0448\u044c \u0432 Project Settings \u2192 API. \u041a\u043b\u044e\u0447 \u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u044d\u0442\u043e\u0439 \u0441\u0435\u0441\u0441\u0438\u0438.
         </p>
 
         {error && (
@@ -186,7 +186,7 @@ function ConnectScreen({ onConnect }) {
           style={{ background: COLORS.coral, color: "#fff", opacity: testing ? 0.7 : 1 }}
         >
           {testing ? <RefreshCw size={15} className="animate-spin" /> : <Link2 size={15} />}
-          {testing ? "ÐÑÐ¾Ð²ÐµÑÑÑ..." : "ÐÐ¾Ð´ÐºÐ»ÑÑÐ¸ÑÑ"}
+          {testing ? "\u041f\u0440\u043e\u0432\u0435\u0440\u044f\u044e..." : "\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c"}
         </button>
       </div>
     </div>
@@ -195,10 +195,10 @@ function ConnectScreen({ onConnect }) {
 
 function StatusPill({ value }) {
   const map = {
-    active: { label: "ÐÐºÑÐ¸Ð²Ð½Ð¾", bg: "#DCEAE3", fg: "#1B4B4C" },
-    paused: { label: "ÐÐ°ÑÐ·Ð°", bg: "#F0E9D8", fg: "#8A6D1F" },
-    booked: { label: "ÐÐ°Ð±ÑÐ¾Ð½Ð¸ÑÐ¾Ð²Ð°Ð½Ð¾", bg: "#F3B8A6", fg: "#8A3A22" },
-    archived: { label: "ÐÑÑÐ¸Ð²", bg: "#E5E5E2", fg: "#6B6B66" },
+    active: { label: "\u0410\u043a\u0442\u0438\u0432\u043d\u043e", bg: "#DCEAE3", fg: "#1B4B4C" },
+    paused: { label: "\u041f\u0430\u0443\u0437\u0430", bg: "#F0E9D8", fg: "#8A6D1F" },
+    booked: { label: "\u0417\u0430\u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043e", bg: "#F3B8A6", fg: "#8A3A22" },
+    archived: { label: "\u0410\u0440\u0445\u0438\u0432", bg: "#E5E5E2", fg: "#6B6B66" },
   };
   const s = map[value] || map.active;
   return (
@@ -210,10 +210,10 @@ function StatusPill({ value }) {
 
 function PlatformBadge({ platform, status, onCycle }) {
   const syncMap = {
-    pending: { bg: "#EAE3D3", fg: "#8A7B4F", label: "ÐÐ¶Ð¸Ð´Ð°ÐµÑ" },
-    synced: { bg: "#DCEAE3", fg: "#1B4B4C", label: "Ð¡Ð¸Ð½ÑÑ." },
-    error: { bg: "#F3B8A6", fg: "#8A3A22", label: "ÐÑÐ¸Ð±ÐºÐ°" },
-    none: { bg: "#F0EEE7", fg: "#A6ADA9", label: "ÐÐµ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾" },
+    pending: { bg: "#EAE3D3", fg: "#8A7B4F", label: "\u041e\u0436\u0438\u0434\u0430\u0435\u0442" },
+    synced: { bg: "#DCEAE3", fg: "#1B4B4C", label: "\u0421\u0438\u043d\u0445\u0440." },
+    error: { bg: "#F3B8A6", fg: "#8A3A22", label: "\u041e\u0448\u0438\u0431\u043a\u0430" },
+    none: { bg: "#F0EEE7", fg: "#A6ADA9", label: "\u041d\u0435 \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u043e" },
   };
   const s = syncMap[status] || syncMap.none;
   return (
@@ -221,7 +221,7 @@ function PlatformBadge({ platform, status, onCycle }) {
       onClick={onCycle}
       className="flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-md text-xs w-full"
       style={{ background: s.bg, color: s.fg }}
-      title="ÐÐ°Ð¶Ð¼Ð¸, ÑÑÐ¾Ð±Ñ ÑÐ¼ÐµÐ½Ð¸ÑÑ ÑÑÐ°ÑÑÑ"
+      title="\u041d\u0430\u0436\u043c\u0438, \u0447\u0442\u043e\u0431\u044b \u0441\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0430\u0442\u0443\u0441"
     >
       <span className="font-medium">{platform}</span>
       <span>{s.label}</span>
@@ -241,7 +241,7 @@ function PhotosSection({ listingId, config, call, uploadFile, deleteFile }) {
       const rows = await call(`listing_photos?listing_id=eq.${listingId}&select=*&order=sort_order.asc`);
       setPhotos(rows || []);
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð³ÑÑÐ·Ð¸ÑÑ ÑÐ¾ÑÐ¾");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0444\u043e\u0442\u043e");
     } finally {
       setLoading(false);
     }
@@ -268,7 +268,7 @@ function PhotosSection({ listingId, config, call, uploadFile, deleteFile }) {
       }
       await loadPhotos();
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð³ÑÑÐ·Ð¸ÑÑ ÑÐ¾ÑÐ¾");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0444\u043e\u0442\u043e");
     } finally {
       setUploading(false);
       e.target.value = "";
@@ -283,14 +283,14 @@ function PhotosSection({ listingId, config, call, uploadFile, deleteFile }) {
       await call(`listing_photos?id=eq.${photo.id}`, { method: "DELETE" });
       await loadPhotos();
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ ÑÐ´Ð°Ð»Ð¸ÑÑ ÑÐ¾ÑÐ¾");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0443\u0434\u0430\u043b\u0438\u0442\u044c \u0444\u043e\u0442\u043e");
     }
   };
 
   return (
     <div className="mt-4 pt-4" style={{ borderTop: `1px solid ${COLORS.ivoryDim}` }}>
       <label className="block text-xs uppercase tracking-wide mb-2" style={{ color: "#5B6664" }}>
-        Ð¤Ð¾ÑÐ¾
+        \u0424\u043e\u0442\u043e
       </label>
 
       {error && (
@@ -325,7 +325,7 @@ function PhotosSection({ listingId, config, call, uploadFile, deleteFile }) {
         style={{ background: COLORS.ivoryDim, color: COLORS.petrolDark }}
       >
         {uploading ? <RefreshCw size={14} className="animate-spin" /> : <Upload size={14} />}
-        {uploading ? "ÐÐ°Ð³ÑÑÐ¶Ð°Ñ..." : "ÐÐ°Ð³ÑÑÐ·Ð¸ÑÑ ÑÐ¾ÑÐ¾"}
+        {uploading ? "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u044e..." : "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0444\u043e\u0442\u043e"}
         <input
           type="file"
           accept="image/*"
@@ -377,42 +377,42 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
 
   return (
     <div className="space-y-3">
-      <div className="flex gap-3">{field("ÐÐ°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº RU", "title_ru")}</div>
-      <div className="flex gap-3">{field("ÐÐ°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº EN", "title_en")}</div>
+      <div className="flex gap-3">{field("\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a RU", "title_ru")}</div>
+      <div className="flex gap-3">{field("\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a EN", "title_en")}</div>
       <div className="flex gap-3">
-        {field("Ð¡Ð´ÐµÐ»ÐºÐ°", "deal_type", {
+        {field("\u0421\u0434\u0435\u043b\u043a\u0430", "deal_type", {
           half: true,
           select: true,
           options: [
-            { value: "rent", label: "ÐÑÐµÐ½Ð´Ð°" },
-            { value: "sale", label: "ÐÑÐ¾Ð´Ð°Ð¶Ð°" },
+            { value: "rent", label: "\u0410\u0440\u0435\u043d\u0434\u0430" },
+            { value: "sale", label: "\u041f\u0440\u043e\u0434\u0430\u0436\u0430" },
           ],
         })}
-        {field("Ð¢Ð¸Ð¿", "property_type", {
+        {field("\u0422\u0438\u043f", "property_type", {
           half: true,
           select: true,
           options: [
-            { value: "apartment", label: "ÐÐ²Ð°ÑÑÐ¸ÑÐ°" },
-            { value: "house", label: "ÐÐ¾Ð¼" },
-            { value: "commercial", label: "ÐÐ¾Ð¼Ð¼ÐµÑÑÐµÑÐºÐ°Ñ" },
+            { value: "apartment", label: "\u041a\u0432\u0430\u0440\u0442\u0438\u0440\u0430" },
+            { value: "house", label: "\u0414\u043e\u043c" },
+            { value: "commercial", label: "\u041a\u043e\u043c\u043c\u0435\u0440\u0447\u0435\u0441\u043a\u0430\u044f" },
           ],
         })}
       </div>
       <div className="flex gap-3">
-        {field("Ð Ð°Ð¹Ð¾Ð½", "district", { half: true })}
-        {field("ÐÐ´ÑÐµÑ", "address", { half: true })}
+        {field("\u0420\u0430\u0439\u043e\u043d", "district", { half: true })}
+        {field("\u0410\u0434\u0440\u0435\u0441", "address", { half: true })}
       </div>
       <div className="flex gap-3">
-        {field("ÐÐ»Ð¾ÑÐ°Ð´Ñ, Ð¼Â²", "area_sqm", { half: true, type: "number" })}
-        {field("ÐÐ¾Ð¼Ð½Ð°Ñ", "rooms", { half: true, type: "number" })}
+        {field("\u041f\u043b\u043e\u0449\u0430\u0434\u044c, \u043c\u00b2", "area_sqm", { half: true, type: "number" })}
+        {field("\u041a\u043e\u043c\u043d\u0430\u0442", "rooms", { half: true, type: "number" })}
       </div>
       <div className="flex gap-3">
-        {field("Ð­ÑÐ°Ð¶", "floor", { half: true, type: "number" })}
-        {field("Ð­ÑÐ°Ð¶ÐµÐ¹ Ð²ÑÐµÐ³Ð¾", "total_floors", { half: true, type: "number" })}
+        {field("\u042d\u0442\u0430\u0436", "floor", { half: true, type: "number" })}
+        {field("\u042d\u0442\u0430\u0436\u0435\u0439 \u0432\u0441\u0435\u0433\u043e", "total_floors", { half: true, type: "number" })}
       </div>
       <div className="flex gap-3">
-        {field("Ð¦ÐµÐ½Ð°", "price", { half: true, type: "number" })}
-        {field("ÐÐ°Ð»ÑÑÐ°", "currency", {
+        {field("\u0426\u0435\u043d\u0430", "price", { half: true, type: "number" })}
+        {field("\u0412\u0430\u043b\u044e\u0442\u0430", "currency", {
           half: true,
           select: true,
           options: [
@@ -422,13 +422,13 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
           ],
         })}
       </div>
-      {field("Ð¡ÑÐ°ÑÑÑ", "status", {
+      {field("\u0421\u0442\u0430\u0442\u0443\u0441", "status", {
         select: true,
         options: [
-          { value: "active", label: "ÐÐºÑÐ¸Ð²Ð½Ð¾" },
-          { value: "paused", label: "ÐÐ°ÑÐ·Ð°" },
-          { value: "booked", label: "ÐÐ°Ð±ÑÐ¾Ð½Ð¸ÑÐ¾Ð²Ð°Ð½Ð¾" },
-          { value: "archived", label: "ÐÑÑÐ¸Ð²" },
+          { value: "active", label: "\u0410\u043a\u0442\u0438\u0432\u043d\u043e" },
+          { value: "paused", label: "\u041f\u0430\u0443\u0437\u0430" },
+          { value: "booked", label: "\u0417\u0430\u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043e" },
+          { value: "archived", label: "\u0410\u0440\u0445\u0438\u0432" },
         ],
       })}
 
@@ -436,7 +436,7 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
         <PhotosSection listingId={form.id} config={config} call={call} uploadFile={uploadFile} deleteFile={deleteFile} />
       ) : (
         <p className="text-xs pt-2" style={{ color: "#8A928F" }}>
-          Ð¤Ð¾ÑÐ¾ Ð¼Ð¾Ð¶Ð½Ð¾ Ð±ÑÐ´ÐµÑ Ð´Ð¾Ð±Ð°Ð²Ð¸ÑÑ Ð¿Ð¾ÑÐ»Ðµ ÑÐ¾ÑÑÐ°Ð½ÐµÐ½Ð¸Ñ Ð¾Ð±ÑÑÐ²Ð»ÐµÐ½Ð¸Ñ.
+          \u0424\u043e\u0442\u043e \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043f\u043e\u0441\u043b\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f.
         </p>
       )}
 
@@ -446,7 +446,7 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
           className="flex-1 py-2.5 rounded-lg text-sm font-medium"
           style={{ background: COLORS.ivoryDim, color: COLORS.ink }}
         >
-          {form.id ? "ÐÐ°ÐºÑÑÑÑ" : "ÐÑÐ¼ÐµÐ½Ð°"}
+          {form.id ? "\u0417\u0430\u043a\u0440\u044b\u0442\u044c" : "\u041e\u0442\u043c\u0435\u043d\u0430"}
         </button>
         <button
           onClick={() => onSave(form)}
@@ -455,7 +455,7 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
           style={{ background: COLORS.coral, color: "#fff", opacity: saving ? 0.7 : 1 }}
         >
           {saving ? <RefreshCw size={14} className="animate-spin" /> : <Check size={14} />}
-          Ð¡Ð¾ÑÑÐ°Ð½Ð¸ÑÑ
+          \u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c
         </button>
       </div>
     </div>
@@ -494,7 +494,7 @@ export default function ListingsManager() {
       });
       setPhotoCounts(counts);
     } catch (e) {
-      setError(e.message || "ÐÑÐ¸Ð±ÐºÐ° Ð·Ð°Ð³ÑÑÐ·ÐºÐ¸");
+      setError(e.message || "\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438");
     } finally {
       setLoading(false);
     }
@@ -539,7 +539,7 @@ export default function ListingsManager() {
       }
       setEditing(null);
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ ÑÐ¾ÑÑÐ°Ð½Ð¸ÑÑ");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c");
     } finally {
       setSaving(false);
     }
@@ -551,7 +551,7 @@ export default function ListingsManager() {
       await call(`listings?id=eq.${id}`, { method: "DELETE" });
       await loadAll();
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ ÑÐ´Ð°Ð»Ð¸ÑÑ");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0443\u0434\u0430\u043b\u0438\u0442\u044c");
     }
   };
 
@@ -582,7 +582,7 @@ export default function ListingsManager() {
       }
       await loadAll();
     } catch (e) {
-      setError(e.message || "ÐÐµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð¾Ð±Ð½Ð¾Ð²Ð¸ÑÑ ÑÑÐ°ÑÑÑ");
+      setError(e.message || "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0441\u0442\u0430\u0442\u0443\u0441");
     }
   };
 
@@ -596,7 +596,7 @@ export default function ListingsManager() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-xl tracking-tight" style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: COLORS.petrolDark }}>
-              ÐÐ±ÑÑÐ²Ð»ÐµÐ½Ð¸Ñ
+              \u041e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f
             </h1>
             <p className="text-xs" style={{ color: "#8A928F" }}>
               Property Advisory Batumi
@@ -607,7 +607,7 @@ export default function ListingsManager() {
               onClick={loadAll}
               className="w-9 h-9 rounded-full flex items-center justify-center"
               style={{ background: "#fff", border: `1px solid ${COLORS.ivoryDim}` }}
-              title="ÐÐ±Ð½Ð¾Ð²Ð¸ÑÑ"
+              title="\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c"
             >
               <RefreshCw size={15} className={loading ? "animate-spin" : ""} color={COLORS.petrol} />
             </button>
@@ -615,7 +615,7 @@ export default function ListingsManager() {
               onClick={() => setEditing("new")}
               className="w-9 h-9 rounded-full flex items-center justify-center"
               style={{ background: COLORS.coral }}
-              title="ÐÐ¾Ð²Ð¾Ðµ Ð¾Ð±ÑÑÐ²Ð»ÐµÐ½Ð¸Ðµ"
+              title="\u041d\u043e\u0432\u043e\u0435 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0435"
             >
               <Plus size={17} color="#fff" />
             </button>
@@ -633,7 +633,7 @@ export default function ListingsManager() {
           <div className="mb-6 p-4 rounded-xl" style={{ background: "#fff", border: `1px solid ${COLORS.ivoryDim}` }}>
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-medium" style={{ color: COLORS.petrolDark }}>
-                {editing === "new" ? "ÐÐ¾Ð²Ð¾Ðµ Ð¾Ð±ÑÑÐ²Ð»ÐµÐ½Ð¸Ðµ" : "Ð ÐµÐ´Ð°ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ"}
+                {editing === "new" ? "\u041d\u043e\u0432\u043e\u0435 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0435" : "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c"}
               </h2>
               <button onClick={() => setEditing(null)}>
                 <X size={16} color="#8A928F" />
@@ -655,7 +655,7 @@ export default function ListingsManager() {
         {!loading && listings.length === 0 && !editing && (
           <div className="text-center py-16">
             <p className="text-sm" style={{ color: "#8A928F" }}>
-              ÐÐ¾ÐºÐ° Ð½ÐµÑ Ð¾Ð±ÑÑÐ²Ð»ÐµÐ½Ð¸Ð¹. ÐÐ¾Ð±Ð°Ð²Ñ Ð¿ÐµÑÐ²Ð¾Ðµ.
+              \u041f\u043e\u043a\u0430 \u043d\u0435\u0442 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439. \u0414\u043e\u0431\u0430\u0432\u044c \u043f\u0435\u0440\u0432\u043e\u0435.
             </p>
           </div>
         )}
@@ -666,10 +666,10 @@ export default function ListingsManager() {
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div>
                   <h3 className="text-sm font-medium" style={{ color: COLORS.petrolDark }}>
-                    {l.title_ru || l.title_en || "ÐÐµÐ· Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ"}
+                    {l.title_ru || l.title_en || "\u0411\u0435\u0437 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f"}
                   </h3>
                   <p className="text-xs flex items-center gap-1" style={{ color: "#8A928F" }}>
-                    {l.district || "â"} Â· {l.rooms ? `${l.rooms} ÐºÐ¾Ð¼Ð½.` : ""} {l.area_sqm ? `Â· ${l.area_sqm} Ð¼Â²` : ""}
+                    {l.district || "\u2014"} \u00b7 {l.rooms ? `${l.rooms} \u043a\u043e\u043c\u043d.` : ""} {l.area_sqm ? `\u00b7 ${l.area_sqm} \u043c\u00b2` : ""}
                     {photoCounts[l.id] ? (
                       <span className="flex items-center gap-0.5 ml-1">
                         <ImageIcon size={11} /> {photoCounts[l.id]}
@@ -682,7 +682,7 @@ export default function ListingsManager() {
 
               <div className="flex items-center justify-between mb-3">
                 <span className="text-base font-medium" style={{ color: COLORS.coral }}>
-                  {l.price ? `${l.price} ${l.currency}` : "â"}
+                  {l.price ? `${l.price} ${l.currency}` : "\u2014"}
                 </span>
                 <div className="flex gap-2">
                   <button onClick={() => setEditing(l)} className="p-1.5 rounded-md" style={{ background: COLORS.ivory }}>
