@@ -455,7 +455,7 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
           style={{ background: COLORS.coral, color: "#fff", opacity: saving ? 0.7 : 1 }}
         >
           {saving ? <RefreshCw size={14} className="animate-spin" /> : <Check size={14} />}
-          \u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c
+          {"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c"}
         </button>
       </div>
     </div>
