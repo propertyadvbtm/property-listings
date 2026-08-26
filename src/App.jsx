@@ -143,7 +143,7 @@ function ConnectScreen({ onConnect }) {
           Property Advisory Batumi
         </h1>
         <p className="text-sm mb-8" style={{ color: "#5B6664" }}>
-          \u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438 \u0431\u0430\u0437\u0443 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439 \u0432 Supabase, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c.
+          {"\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438 \u0431\u0430\u0437\u0443 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439 \u0432 Supabase, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c."}
         </p>
 
         <label className="block text-xs uppercase tracking-wide mb-1.5" style={{ color: "#5B6664" }}>
@@ -169,7 +169,7 @@ function ConnectScreen({ onConnect }) {
           style={{ background: "#fff", border: `1px solid ${COLORS.ivoryDim}` }}
         />
         <p className="text-xs mb-5" style={{ color: "#8A928F" }}>
-          \u041d\u0430\u0439\u0434\u0451\u0448\u044c \u0432 Project Settings \u2192 API. \u041a\u043b\u044e\u0447 \u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u044d\u0442\u043e\u0439 \u0441\u0435\u0441\u0441\u0438\u0438.
+          {"\u041d\u0430\u0439\u0434\u0451\u0448\u044c \u0432 Project Settings \u2192 API. \u041a\u043b\u044e\u0447 \u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u044d\u0442\u043e\u0439 \u0441\u0435\u0441\u0441\u0438\u0438."}
         </p>
 
         {error && (
@@ -290,7 +290,7 @@ function PhotosSection({ listingId, config, call, uploadFile, deleteFile }) {
   return (
     <div className="mt-4 pt-4" style={{ borderTop: `1px solid ${COLORS.ivoryDim}` }}>
       <label className="block text-xs uppercase tracking-wide mb-2" style={{ color: "#5B6664" }}>
-        \u0424\u043e\u0442\u043e
+        {"\u0424\u043e\u0442\u043e"}
       </label>
 
       {error && (
@@ -436,7 +436,7 @@ function ListingForm({ initial, onSave, onCancel, saving, config, call, uploadFi
         <PhotosSection listingId={form.id} config={config} call={call} uploadFile={uploadFile} deleteFile={deleteFile} />
       ) : (
         <p className="text-xs pt-2" style={{ color: "#8A928F" }}>
-          \u0424\u043e\u0442\u043e \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043f\u043e\u0441\u043b\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f.
+          {"\u0424\u043e\u0442\u043e \u043c\u043e\u0436\u043d\u043e \u0431\u0443\u0434\u0435\u0442 \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043f\u043e\u0441\u043b\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f."}
         </p>
       )}
 
@@ -596,7 +596,7 @@ export default function ListingsManager() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-xl tracking-tight" style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: COLORS.petrolDark }}>
-              \u041e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f
+              {"\u041e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f"}
             </h1>
             <p className="text-xs" style={{ color: "#8A928F" }}>
               Property Advisory Batumi
@@ -655,7 +655,7 @@ export default function ListingsManager() {
         {!loading && listings.length === 0 && !editing && (
           <div className="text-center py-16">
             <p className="text-sm" style={{ color: "#8A928F" }}>
-              \u041f\u043e\u043a\u0430 \u043d\u0435\u0442 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439. \u0414\u043e\u0431\u0430\u0432\u044c \u043f\u0435\u0440\u0432\u043e\u0435.
+              {"\u041f\u043e\u043a\u0430 \u043d\u0435\u0442 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0439. \u0414\u043e\u0431\u0430\u0432\u044c \u043f\u0435\u0440\u0432\u043e\u0435."}
             </p>
           </div>
         )}
